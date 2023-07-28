@@ -11,8 +11,7 @@ services:
         context: ./database
         dockerfile: Dockerfile
     networks:
-      - datanet
-    restart: always   
+      - datanet   
 
   database_admin:
     container_name: database_admin
@@ -25,8 +24,7 @@ services:
     ports:
       - 127.0.0.1:81:80
     networks:
-      - datanet  
-    restart: always 
+      - datanet   
 
   www:
     container_name: www
@@ -43,7 +41,6 @@ services:
     networks:
       - datanet
       - ldapnet
-    restart: always
 
   directory:
     container_name: directory
@@ -58,7 +55,6 @@ services:
       - 127.0.0.1:389:389
     networks:
       - ldapnet
-    restart: always
 
   directory_admin:
     container_name: directory_admin
@@ -72,7 +68,6 @@ services:
       - 127.0.0.1:82:80
     networks:
       - ldapnet
-    restart: always
 
 # Volumes to persist data used by the LDAP server
 volumes:
