@@ -7,8 +7,9 @@ import multiprocessing
 import ssl
 import os
 
-base_dir = os.path.realpath(__file__)
-application_path= os.path.realpath(__file__) + '/webroot'
+fullpath = os.path.realpath(__file__)
+base_dir, fname = os.path.split(fullpath)
+application_path= base_dir + '/webroot'
 
 global http_server_process
 http_server_process = None
